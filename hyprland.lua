@@ -239,7 +239,13 @@ hl.bind(MOD .. " + SHIFT + Right", hl.dsp.layout("swapcol r"), { description = "
 hl.bind(MOD .. " + G", function()
     hl.config({ cursor = { inactive_timeout = 0, hide_on_key_press = false } })
     hl.dispatch(hl.dsp.exec_cmd("wl-kbptr"))
-end, { description = "[Utilities] keyboard pointer (wl-kbptr)" })
+end, { description = "[Utilities] keyboard pointer, move and click (wl-kbptr)" })
+
+-- Same, but only move the pointer: no click
+hl.bind(MOD .. " + SHIFT + G", function()
+    hl.config({ cursor = { inactive_timeout = 0, hide_on_key_press = false } })
+    hl.dispatch(hl.dsp.exec_cmd("wl-kbptr -o general.modes=floating"))
+end, { description = "[Utilities] keyboard pointer, move only (wl-kbptr)" })
 
 -- Cursor submap (like Sway's mouse mode). Not used right now: the entry key
 -- below is off, same as in the old config.
